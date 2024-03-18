@@ -115,7 +115,7 @@ Note: we support both gaussian original kernel and DPTR kernel.
 1. Download the lego data and put it in your folder:
 
 ```bash
-wget http://cseweb.ucsd.edu/\~viscomp/projects/LF/papers/ECCV20/nerf/nerf_example_data.zip
+wget http://cseweb.ucsd.edu/~viscomp/projects/LF/papers/ECCV20/nerf/nerf_example_data.zip
 ```
 
 2. Run the following command to train the model (...data path in the config file...):
