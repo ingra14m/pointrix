@@ -44,7 +44,7 @@ Get Started
 
 ## Overview
 
-Pointrix is a **differentiable point-based rendering library** which has following properties:
+[Pointrix](https://github.com/pointrix-project/pointrix) is a **differentiable point-based rendering library** which has following properties:
 
 ---
 
@@ -82,13 +82,6 @@ DPTR which offer foundational functionalities for point rendering serves as the 
 :::
 
 ::::
-
-## Source code
-
-|                                                            |                        |
-| ---------------------------------------------------------- | ---------------------- |
-| [Github Page](https://github.com/pointrix-project/pointrix)     | Official Pointrix      |
-| [Github Page](https://github.com/pointrix-project/dptr)         | DPTR                   |
 
 If you **are the beginner** of Pointrix, You can start from these:
 
@@ -178,7 +171,15 @@ API
   <img src="https://contrib.rocks/image?repo=pointrix-project/pointrix" />
 </a>
 
+
 ### DPTR:
 <a href="https://github.com/pointrix-project/dptr/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=pointrix-project/dptr" />
 </a>
+
+## Source code
+
+|                                                            |                        |
+| ---------------------------------------------------------- | ---------------------- |
+| [Github Page](https://github.com/pointrix-project/pointrix)     | Official Pointrix      |
+| [Github Page](https://github.com/pointrix-project/dptr)         | DPTR                   |
