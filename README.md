@@ -9,7 +9,7 @@
     <br />
     <a href="https://pointrix-project.github.io/pointrix/">
     <strong>Document🏠 | </strong></a>
-    <a href="https://countermaker.github.io/pointrix.io/">
+    <a href=""https://pointrix-project.github.io/pointrix/">
     <strong>Paper📄 (Comming soon) | </strong></a>
     <a href="https://github.com/pointrix-project/dptr">
     <strong>DPRT Backend🌐 </strong></a>
