@@ -83,6 +83,13 @@ DPTR which offer foundational functionalities for point rendering serves as the 
 
 ::::
 
+## Source code
+
+|                                                            |                        |
+| ---------------------------------------------------------- | ---------------------- |
+| [Github Page](https://github.com/pointrix-project/pointrix)     | Official Pointrix      |
+| [Github Page](https://github.com/pointrix-project/dptr)         | DPTR                   |
+
 If you **are the beginner** of Pointrix, You can start from these:
 
 ---
