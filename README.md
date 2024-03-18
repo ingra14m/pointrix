@@ -10,9 +10,9 @@
     <a href="https://pointrix-project.github.io/pointrix/">
     <strong>Document🏠 | </strong></a>
     <a href="https://pointrix-project.github.io/pointrix/">
-    <strong>Paper📄 (Comming soon) | </strong></a>
+    <strong>Paper(Comming soon)📄  | </strong></a>
     <a href="https://github.com/pointrix-project/dptr">
-    <strong>DPRT Backend🌐 </strong></a>
+    <strong>DPTR Backend🌐 </strong></a>
     <br />
     <br />
     <!-- <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
