@@ -66,7 +66,14 @@ Made with [contrib.rocks](https://contrib.rocks).
 ### Installations
 1. Install the following package:
 
-First,create a new conda environment and activate it:
+
+First, clone pointrix:
+
+```bash
+git clone https://github.com/pointrix-project/pointrix.git
+```
+
+Then, create a new conda environment and activate it:
 
 ```bash
 conda create -n pointrix python=3.9
@@ -114,7 +121,7 @@ wget http://cseweb.ucsd.edu/\~viscomp/projects/LF/papers/ECCV20/nerf/nerf_exampl
 2. Run the following command to train the model (...data path in the config file...):
 
 ```bash
-cd Pointrix
+cd pointrix
 pip install -e .
 cd projects/gaussian_splatting
 python launch.py --config ./configs/nerf_dptr.yaml
@@ -131,7 +138,7 @@ http://storage.googleapis.com/gresearch/refraw360/360_v2.zip
 2. Run the following command to train the model (...data path in the config file...):
 
 ```bash
-cd Pointrix
+cd pointrix
 pip install -e .
 cd projects/gaussian_splatting
 python launch.py --config ./configs/colmap_dptr.yaml
@@ -146,12 +153,10 @@ python launch.py --config ./configs/colmap.yaml
 1. Download the iphone dataset and put it in your folder:
 https://drive.google.com/drive/folders/1cBw3CUKu2sWQfc_1LbFZGbpdQyTFzDEX
 
-2. Run the following command to train the model:
-
-**you need to modify the data path in the config file to the path of the data you downloaded.**
+2. Run the following command to train the model (...data path in the config file...):
 
 ```bash
-cd Pointrix
+cd pointrix
 pip install -e .
 cd projects/deformable_gaussian
 python launch.py --config deform.yaml
