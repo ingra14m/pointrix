@@ -8,11 +8,11 @@
     A differentiable point-based rendering library.
     <br />
     <a href="https://pointrix-project.github.io/pointrix/">
-    <strong>Document🏠 | </strong></a>
+    <strong>Document🏠</strong></a>  | 
     <a href="https://pointrix-project.github.io/pointrix/">
-    <strong>Paper(Comming soon)📄  | </strong></a>
+    <strong>Paper(Comming soon)📄</strong></a> | 
     <a href="https://github.com/pointrix-project/dptr">
-    <strong>DPTR Backend🌐 </strong></a>
+    <strong>DPTR Backend🌐</strong></a>
     <br />
     <br />
     <!-- <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
@@ -31,21 +31,43 @@
 
 
 Pointrix is a differentiable point-based rendering library which has following properties:
+
+- **Highly Extensible**:
+  - Python API
+  - Modular design for both researchers and beginners
+  - Implementing your own method without touching CUDA
 - **Powerful Backend**:
-  - Support **"Render Anything"**(depth, normal, optical flow, anything you want)  and **"Backward Anything"** (Intrinsics & Extrinsics).
+  - CUDA Backend
+  - Forward Anything: rendering image, depth, normal, optical flow, etc.
+  - Backward Anything: optimizing even intrinsics and extrinsics.
+- **Rich Features**:
+  - 3D Reconstruction: [Vanilla 3DGS](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/3d_gaussian_splatting_high.pdf) (Siggraph 2023), [Relightable 3DGS](https://arxiv.org/pdf/2311.16043.pdf)(WIP)
+  - 4D Reconstruction: [Deformable 3DGS](https://arxiv.org/abs/2309.13101) (CVPR 2024), [Gaussian-Flow](https://arxiv.org/abs/2312.03431) (CVPR 2024, WIP)
+  - 3D Generation: [GSGen](https://arxiv.org/pdf/2309.16585.pdf) (CVPR 2024, WIP), [DreamGaussian](https://arxiv.org/pdf/2309.16653.pdf) (ICLR 2024, TBD), [LGM](https://arxiv.org/pdf/2402.05054.pdf) (arXiv 2024, TBD)
+  - 4D Generation: [STAG4D]() (arXiv 2024, WIP), [DreamGaussian4D](https://arxiv.org/pdf/2312.17142.pdf) (arXiv 2023, TBD)
+  - ...
+
+
+
+
+<!-- - **Powerful Backend**:
+  - **Render Anything**: image, depth, normal, optical flow, etc.
+  - **Backward Anything**: including camera parameters.
   - Modular design and easy to modify, support open-gl and opencv camera.
 - **Rich Feature**:
-  - Static Scene Reconstruction: 
-    - **[Vanilla 3DGS](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/3d_gaussian_splatting_high.pdf) (2023 Siggraph Best Paper)**
-  - Dynamic Scene Reconstruction: 
-    - **[Deformable 3DGS](https://arxiv.org/abs/2309.13101) (2024 CVPR)**
-    - **[Gaussian-Flow](https://arxiv.org/abs/2312.03431) (2024 CVPR)**
-  - Text to 3D generation: 
-    - [MVDream](https://arxiv.org/abs/2308.16512) (2023 Arxiv)
-      
+  - **3D Reconstruction**: 
+      - [Vanilla 3DGS](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/3d_gaussian_splatting_high.pdf) (Siggraph 2023)
+  - **3D Generation**: 
+      - [MVDream](https://arxiv.org/abs/2308.16512) (arXiv 2023)
+  - **4D Reconstruction**: 
+      - [Deformable 3DGS](https://arxiv.org/abs/2309.13101) (CVPR 2024)
+      - [Gaussian-Flow](https://arxiv.org/abs/2312.03431) (CVPR 2024)
+  - **4D Generation**: 
+      - [STAG4D]() (arXiv 2024)
+  - **...**
 - **Highly Extensible and Designed for Research**:
   - Pointrix adopts a modular design, with clear structure and easy extensibility. 
-  - Only few codes need to be modified if you want to add a new method. 
+  - Only few codes need to be modified if you want to add a new method.  -->
 
 
 <div style="display:flex;">
@@ -54,50 +76,32 @@ Pointrix is a differentiable point-based rendering library which has following p
   <img src="https://github.com/pointrix-project/pointrix/assets/32637882/928a142e-38cb-48e6-847b-1c6d4b95f7a3" width="30%" />
 </div>
 
-## contributors
-<a href="https://github.com/pointrix-project/pointrix/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=pointrix-project/pointrix" />
-</a>
 
-Made with [contrib.rocks](https://contrib.rocks).
+## Quickstart
 
-## Prerequisites
-
-### Installations
-1. Install the following package:
+### Installation
 
 
-First, clone pointrix:
+Clone pointrix:
 
 ```bash
 git clone https://github.com/pointrix-project/pointrix.git
 ```
 
-Then, create a new conda environment and activate it:
+Create a new conda environment with pytorch:
 
 ```bash
 conda create -n pointrix python=3.9
 conda activate pointrix
-```
-
-Then, you need to install pytorch
-```bash
 conda install pytorch==2.1.1 torchvision==0.16.1 pytorch-cuda=12.1 -c pytorch -c nvidia
 ```
-Other dependencies:
 
-```
-pip install -r requirements.txt
-```
-
-Finally, install our DPTR rendering kernel:
+Install DPTR backend and dependencies:
 
 ```bash
-# Install official diff-gaussian-rasterization
-# clone the code from github
+# note: can also switch to the original 3DGS diff-gaussian-rasterization 
 git clone https://github.com/pointrix-project/dptr.git --recursive
 cd dptr
-# install dptr
 pip install .
 ```
 ```bash
@@ -108,73 +112,83 @@ python setup.py install
 pip install .
 ```
 
-Note: we support both gaussian original kernel and DPTR kernel.
+Install Pointrix:
 
-## Running our example
-### 1. Lego
-1. Download the lego data and put it in your folder:
+```
+cd pointrix
+pip install -r requirements.txt
+pip install -e .
+```
+
+
+###  Train Your First 3D Gaussian
+
+#### NeRF-Lego (NeRF-Synthetic format dataset)
+Download the lego data:
 
 ```bash
 wget http://cseweb.ucsd.edu/~viscomp/projects/LF/papers/ECCV20/nerf/nerf_example_data.zip
 ```
 
-2. Run the following command to train the model (...data path in the config file...):
+Run the following (with adjusted data path in the config):
 
 ```bash
-cd pointrix
-pip install -e .
-cd projects/gaussian_splatting
+cd pointrix/projects/gaussian_splatting
 python launch.py --config ./configs/nerf_dptr.yaml
 
-# you can also run this if you have installed gaussian original kernel
-python launch.py --config ./configs/nerf.yaml
+# you can also run the following for the original 3DGS kernel
+# python launch.py --config ./configs/nerf.yaml
 ```
 
-### 2. Mip-nerf 360 or other colmap dataset
-1. Download the data and put it in your folder:
-
-http://storage.googleapis.com/gresearch/refraw360/360_v2.zip
-
-2. Run the following command to train the model (...data path in the config file...):
+#### Mip-NeRF 360 (Colmap format dataset)
+Download the [data](http://storage.googleapis.com/gresearch/refraw360/360_v2.zip) and run:
 
 ```bash
-cd pointrix
-pip install -e .
-cd projects/gaussian_splatting
+cd pointrix/projects/gaussian_splatting
 python launch.py --config ./configs/colmap_dptr.yaml
 
-# you can also run this if you have install gaussian original kernel
-python launch.py --config ./configs/colmap.yaml
+# you can also run the following for the original 3DGS kernel
+# python launch.py --config ./configs/colmap.yaml
 ```
 
-## Try other methods
+## Advanced Approaches
 
-### 1. Dynamic Gaussian
+#### Deformable 3D Gaussian
 1. Download the iphone dataset and put it in your folder:
 https://drive.google.com/drive/folders/1cBw3CUKu2sWQfc_1LbFZGbpdQyTFzDEX
 
 2. Run the following command to train the model (...data path in the config file...):
 
 ```bash
-cd pointrix
-pip install -e .
-cd projects/deformable_gaussian
+cd pointrix/projects/deformable_gaussian
 python launch.py --config deform.yaml
 ```
 
-### 2. Generation (WIP)
+#### Gaussian-Flow (WIP)
+
+#### GSGen (WIP)
+
+#### STAG4D (WIP)
+
+#### Relightable 3DGS (WIP)
 
 
-# WIP
+## Release Plans
+- [ ] GUI for visualization (this week).
+- [ ] Implementataion of Gaussian-Flow (CVPR 2024) (this week).
+- [ ] Implementataion of GSGen with MVDream SDS (this week).
+- [ ] Camera optimization (this week).
 - [ ] Introduction video
-- [ ] **Add GUI for visualization (this week).**
-- [ ] **Implementataion of Gaussian-Flow (CVPR 2024) (this week).**
-- [ ] Implementataion of MVDream (this week).
 - [ ] Implementataion of Relightable Gaussian (arXiv 2023).
-- [ ] **Support camera optimization  (this week).**
 
-Welcome to join us or submit PR if you have any idea or methods.
-
+Welcome to discuss with us and submit PR on new ideas and methods.
 
 
+
+## Contributors
+<a href="https://github.com/pointrix-project/pointrix/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=pointrix-project/pointrix" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
 
