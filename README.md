@@ -78,12 +78,12 @@ Pointrix is a differentiable point-based rendering library which has following p
 
 ## Comparation with original 3D gaussian code
 
-### nerf_synthetic dataset
+### nerf_synthetic dataset (PSNR)
 
-| Method                  | Lego        | chair        | ficus        | drums        | hotdog        | ship        | materials        | mic        | Average        |
+| Method                  | lego        | chair        | ficus        | drums        | hotdog        | ship        | materials        | mic        | average        |
 | -----------             | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
-| original code (PSNR) | 35.84       | 36.12       | 35.02       | 26.18       | 37.81       | 30.98       | 29.95       | 35.34       |  33.40       |
-| Pointrix (PSNR)         | 35.88        | 35.92        | 35.00        | 26.21        | 37.81        | 30.95        | 30.02        | 35.35        |   33.39       |
+| Pointrix | 35.84       | 36.12       | 35.02       | 26.18       | 37.81       | 30.98       | 29.95       | 35.34       |  33.40       |
+| [original](https://github.com/graphdeco-inria/gaussian-splatting)        | 35.88        | 35.92        | 35.00        | 26.21        | 37.81        | 30.95        | 30.02        | 35.35        |   33.39       |
 
 we obtain the result of 3D gaussian code by running following command in their repository.
 ```bash
