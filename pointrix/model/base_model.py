@@ -142,9 +142,7 @@ class BaseModel(BaseModule):
         rgb = torch.clamp(render_results['rgb'], 0.0, 1.0)
         L1_loss = l1_loss(rgb, gt_images).mean().double()
         psnr_test = psnr(rgb.squeeze(), gt_images.squeeze()).mean().double()
-        ssims_test = ms_ssim(
-            rgb, gt_images, data_range=1, size_average=True
-        ).mean().item()
+        ssims_test = ssim(rgb, gt_images, size_average=True).mean().item()
         # lpips_test = lpips(
         #     render_results['images'], 
         #     gt_images,
