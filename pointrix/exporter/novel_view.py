@@ -12,7 +12,8 @@ from operator import methodcaller
 
 from pointrix.utils.losses import l1_loss
 from pointrix.utils.system import mkdir_p
-from pointrix.utils.gaussian_points.gaussian_utils import psnr
+# from pointrix.utils.gaussian_points.gaussian_utils import psnr
+from pointrix.model.loss import psnr, ssim, LPIPS
 from pointrix.utils.visuaize import visualize_depth, visualize_rgb
 
 
@@ -34,6 +35,9 @@ def test_view_render(model, renderer, datapipeline, output_path, device='cuda'):
     """
     l1_test = 0.0
     psnr_test = 0.0
+    ssim_test = 0.0
+    lpips_test = 0.0
+    lpips_func = LPIPS()
     val_dataset = datapipeline.validation_dataset
     val_dataset_size = len(val_dataset)
     progress_bar = tqdm(
@@ -64,11 +68,15 @@ def test_view_render(model, renderer, datapipeline, output_path, device='cuda'):
 
         l1_test += l1_loss(image, gt_image).mean().double()
         psnr_test += psnr(image, gt_image).mean().double()
+        ssim_test += ssim(image, gt_image).mean().double()
+        lpips_test += lpips_func(image, gt_image).mean().double()
         progress_bar.update(1)
     progress_bar.close()
     l1_test /= val_dataset_size
     psnr_test /= val_dataset_size
-    print(f"Test results: L1 {l1_test:.5f} PSNR {psnr_test:.5f}")
+    ssim_test /= val_dataset_size
+    lpips_test /= val_dataset_size
+    print(f"Test results: L1 {l1_test:.5f} PSNR {psnr_test:.5f} SSIM {ssim_test:.5f} LPIPS (VGG) {lpips_test:.5f}")
 
 
 def novel_view_render(model, renderer, datapipeline, output_path, novel_view_list=["Dolly", "Zoom", "Spiral"], device='cuda'):
