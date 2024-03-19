@@ -76,6 +76,19 @@ Pointrix is a differentiable point-based rendering library which has following p
   <img src="https://github.com/pointrix-project/pointrix/assets/32637882/928a142e-38cb-48e6-847b-1c6d4b95f7a3" width="30%" />
 </div>
 
+## Comparation with original 3D gaussian code
+
+### nerf_synthetic dataset
+
+| Method                  | Lego        | chair        | ficus        | drums        | hotdog        | ship        | materials        | mic        | Average        |
+| -----------             | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
+| 3D gaussian code (PSNR) | 35.84       | 36.12       | 35.02       | 26.18       | 37.81       | 30.98       | 29.95       | 35.34       |  33.40       |
+| Pointrix (PSNR)         | 35.88        | 35.92        | 35.00        | 26.21        | 37.81        | 30.95        | 30.02        | 35.35        |   33.39       |
+
+we obtain the result of 3D gaussian code by running following command in their repository.
+```bash
+ python train.py -s nerf_synthetic_root --eval -w
+```
 
 ## Quickstart
 
