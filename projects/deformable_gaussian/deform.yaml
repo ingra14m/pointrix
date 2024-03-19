@@ -57,8 +57,8 @@ trainer:
         init:  0.0008
         final: 0.000008
       deform:
-        init:  0.00016
-        final: 0.0000016
+        init:  0.0008
+        final: 0.000008
   dataset:
     data_path: ""
     data_type: "ColmapReFormat"

@@ -45,7 +45,6 @@ def main(args, extras) -> None:
 
     cfg.trainer.model.name = "DeformGaussian"
     cfg.trainer.dataset.data_type = "NerfiesReFormat"
-    cfg.trainer.dataset.data_path = "/NASdata/clz/data/mochi-high-five"
     cfg['trainer']['optimizer']['optimizer_1']['params']['deform'] = {}
     cfg['trainer']['optimizer']['optimizer_1']['params']['deform']['lr'] = 0.00016 * 5.0
     cfg.trainer.val_interval = 5000
