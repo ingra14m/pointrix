@@ -181,7 +181,7 @@ class BaseModel(BaseModule):
         if num_pts != len(self.point_cloud):
             self.point_cloud.re_init(num_pts)
 
-        return super().load_state_dict(state_dict, strict, assign)
+        return super().load_state_dict(state_dict, strict)
 
     def get_state_dict(self):
         additional_info = {'num_pts': len(self.point_cloud)}
