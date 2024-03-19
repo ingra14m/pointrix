@@ -7,8 +7,7 @@ from pytorch_msssim import ms_ssim
 from pointrix.utils.base import BaseModule
 from pointrix.utils.config import parse_structured
 from pointrix.point_cloud import parse_point_cloud
-from .loss import l1_loss, ssim, psnr
-# from .lpips_pytorch import lpips
+from .loss import l1_loss, ssim, psnr, LPIPS
 from pointrix.utils.registry import Registry
 
 MODEL_REGISTRY = Registry("MODEL", modules=["pointrix.model"])
@@ -41,6 +40,7 @@ class BaseModel(BaseModule):
                                              datapipeline).to(device)
         self.point_cloud.set_prefix_name("point_cloud")
         self.device = device
+        self.lpips_func = LPIPS()
 
     def forward(self, batch=None) -> dict:
         """
@@ -145,15 +145,11 @@ class BaseModel(BaseModule):
         ssims_test = ms_ssim(
             rgb, gt_images, data_range=1, size_average=True
         ).mean().item()
-        # lpips_test = lpips(
-        #     render_results['images'], 
-        #     gt_images,
-        #     net_type='vgg'
-        # ).mean().item()
+        lpips_vgg_test = self.lpips_func(rgb, gt_images).mean().item()
         metric_dict = {"L1_loss": L1_loss,
                        "psnr": psnr_test,
                        "ssims": ssims_test,
-                    #    "lpips": lpips_test,
+                       "lpips": lpips_vgg_test,
                        "gt_images": gt_images,
                        "images": rgb,
                        "rgb_file_name": batch[0]["camera"].rgb_file_name}

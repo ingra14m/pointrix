@@ -4,6 +4,7 @@ from jaxtyping import Float
 import torch.nn.functional as F
 from torch.autograd import Variable
 from math import exp
+import lpips
 
 def psnr(img1:Float[Tensor, "H W C"], img2:Float[Tensor, "H W C"]):
     """
@@ -110,4 +111,16 @@ def _ssim(img1, img2, window, window_size, channel, size_average=True):
         return ssim_map.mean()
     else:
         return ssim_map.mean(1).mean(1).mean(1)
+    
+class LPIPS(object):
+    def __init__(self, device='cuda', net='vgg'):
+        if net == 'vgg':
+            self.model = lpips.LPIPS(net='vgg').to(device)
+        elif net == 'alex':
+            self.model = lpips.LPIPS(net='alex').to(device)
+        else:
+            assert False, "Could not recognize network type for LPIPS!"
+
+    def __call__(self, img1, img2):
+        return self.model(img1, img2)
     

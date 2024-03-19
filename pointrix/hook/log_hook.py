@@ -18,7 +18,7 @@ class LogHook(Hook):
         self.bar_info = {}
         
         # self.losses_test = {"L1_loss": 0., "psnr": 0., "ssims": 0., "lpips": 0.}
-        self.losses_test = {"L1_loss": 0., "psnr": 0., "ssims": 0.}
+        self.losses_test = {"L1_loss": 0., "psnr": 0., "ssims": 0., "lpips": 0.}
 
     def before_run(self, trainner) -> None:
         """
