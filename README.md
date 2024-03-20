@@ -1,6 +1,8 @@
 <div align="center">
   <p align="center">
       <picture>
+      <source srcset="https://github.com/pointrix-project/pointrix/assets/32637882/cf58c589-8808-4b8f-8941-982b8a688b8c" media="(prefers-color-scheme: dark)">
+      <source srcset="https://github.com/pointrix-project/pointrix/assets/32637882/e0bd7ce3-fbf3-40f3-889c-7c882f3eed20" media="(prefers-color-scheme: light)">
       <img alt="Pointrix" src="https://github.com/pointrix-project/pointrix/assets/32637882/e0bd7ce3-fbf3-40f3-889c-7c882f3eed20" width="80%">
       </picture>
   </p>
