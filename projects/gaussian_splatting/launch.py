@@ -2,7 +2,6 @@ import os
 import argparse
 
 import sys
-sys.path.append("../../")
 from pointrix.utils.config import load_config
 from pointrix.engine.default_trainer import DefaultTrainer
 
