@@ -3,13 +3,13 @@ import numpy as np
 from typing import Any, Dict, List
 from pathlib import Path
 
-from pointrix.camera.camera import Camera
-from pointrix.dataset.base_data import BaseReFormatData, SimplePointCloud, DATA_FORMAT_REGISTRY
-from pointrix.utils.dataset.colmap_utils import (read_colmap_extrinsics,
+from ..camera.camera import Camera
+from ..dataset.base_data import BaseReFormatData, SimplePointCloud, DATA_FORMAT_REGISTRY
+from ..utils.dataset.colmap_utils import (read_colmap_extrinsics,
                                                  read_colmap_intrinsics,
                                                  retrieve_ply_file)
-from pointrix.utils.pose import qvec2rotmat
-from pointrix.logger.writer import Logger
+from ..utils.pose import qvec2rotmat
+from ..logger.writer import Logger
 @DATA_FORMAT_REGISTRY.register()
 class ColmapReFormat(BaseReFormatData):
     """

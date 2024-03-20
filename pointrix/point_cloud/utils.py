@@ -1,7 +1,7 @@
 
 import torch
 import numpy as np
-from pointrix.logger.writer import Logger
+from ..logger.writer import Logger
 
 def RGB2SH(rgb):
     C0 = 0.28209479177387814

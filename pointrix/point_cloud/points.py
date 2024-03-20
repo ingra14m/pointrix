@@ -11,10 +11,10 @@ from typing import Optional, Union
 from plyfile import PlyData, PlyElement
 from dataclasses import dataclass, field
 
-from pointrix.utils.system import mkdir_p
-from pointrix.utils.base import BaseModule
-from pointrix.utils.registry import Registry
-from pointrix.dataset.base_data import SimplePointCloud
+from ..utils.system import mkdir_p
+from ..utils.base import BaseModule
+from ..utils.registry import Registry
+from ..dataset.base_data import SimplePointCloud
 
 from .utils import (
     unwarp_name,

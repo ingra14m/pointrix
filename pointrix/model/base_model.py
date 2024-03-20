@@ -4,12 +4,12 @@ from typing import Mapping, Optional, Union, Any
 from omegaconf import DictConfig
 from pytorch_msssim import ms_ssim
 
-from pointrix.utils.base import BaseModule
-from pointrix.utils.config import parse_structured
-from pointrix.point_cloud import parse_point_cloud
+from ..utils.base import BaseModule
+from ..utils.config import parse_structured
+from ..point_cloud import parse_point_cloud
 from .loss import l1_loss, ssim, psnr
 # from .lpips_pytorch import lpips
-from pointrix.utils.registry import Registry
+from ..utils.registry import Registry
 
 MODEL_REGISTRY = Registry("MODEL", modules=["pointrix.model"])
 MODEL_REGISTRY.__doc__ = ""

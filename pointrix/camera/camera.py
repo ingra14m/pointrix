@@ -8,7 +8,7 @@ from numpy.typing import NDArray
 from typing import Union, List
 from dataclasses import dataclass, field
 # from pointrix.camera.camera_utils import se3_exp_map
-from pointrix.utils.pose import se3_exp_map
+from ..utils.pose import se3_exp_map
 
 
 @dataclass()

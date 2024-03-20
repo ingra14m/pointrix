@@ -7,14 +7,15 @@ from dataclasses import dataclass, field
 import torch
 from torch import nn
 from pathlib import Path
-from pointrix.renderer import parse_renderer
-from pointrix.dataset import parse_data_pipeline
-from pointrix.utils.config import parse_structured
-from pointrix.optimizer import parse_optimizer, parse_scheduler
-from pointrix.model import parse_model
-from pointrix.logger import parse_writer
-from pointrix.hook import parse_hooks
-from pointrix.exporter.novel_view import test_view_render, novel_view_render
+
+from ..renderer import parse_renderer
+from ..dataset import parse_data_pipeline
+from ..utils.config import parse_structured
+from ..optimizer import parse_optimizer, parse_scheduler
+from ..model import parse_model
+from ..logger import parse_writer
+from ..hook import parse_hooks
+from ..exporter.novel_view import test_view_render, novel_view_render
 
 from torch.utils.tensorboard import SummaryWriter
 

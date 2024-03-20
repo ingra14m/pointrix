@@ -1,6 +1,6 @@
-from .gaussian_points.gaussian_points import GaussianPointCloud
-from pointrix.dataset.base_data import BaseDataPipeline
+from ..dataset.base_data import BaseDataPipeline
 from .base_model import BaseModel, MODEL_REGISTRY
+from .gaussian_points.gaussian_points import GaussianPointCloud
 
 __all__ = ["GaussianPointCloud", "BaseModel"]
 

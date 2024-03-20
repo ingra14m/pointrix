@@ -1,6 +1,6 @@
 import numpy as np
 
-from pointrix.utils.registry import Registry
+from ..utils.registry import Registry
 from .optimizer import OptimizerList
 SCHEDULER_REGISTRY = Registry("Scheduler", modules=["pointrix.optimizer"])
 SCHEDULER_REGISTRY.__doc__ = ""

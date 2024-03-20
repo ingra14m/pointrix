@@ -3,8 +3,9 @@ from .hook import HOOK_REGISTRY, Hook
 from rich.panel import Panel
 from rich.table import Table
 from rich.live import Live
-from pointrix.utils.visuaize import visualize_depth
-from pointrix.logger.writer import Logger, ProgressLogger
+
+from ..utils.visuaize import visualize_depth
+from ..logger.writer import Logger, ProgressLogger
 
 
 @HOOK_REGISTRY.register()
