@@ -5,9 +5,9 @@ from PIL import Image
 from typing import Any, Dict, List
 from pathlib import Path
 
-from pointrix.camera.camera import Camera
-from pointrix.dataset.base_data import BaseReFormatData, DATA_FORMAT_REGISTRY
-from pointrix.utils.dataset.dataset_utils import fov2focal, focal2fov
+from ..camera.camera import Camera
+from ..dataset.base_data import BaseReFormatData, DATA_FORMAT_REGISTRY
+from ..utils.dataset.dataset_utils import fov2focal, focal2fov
 
 
 @DATA_FORMAT_REGISTRY.register()

@@ -10,11 +10,10 @@ import imageio
 from torch import nn
 from operator import methodcaller
 
-from pointrix.utils.losses import l1_loss
-from pointrix.utils.system import mkdir_p
-# from pointrix.utils.gaussian_points.gaussian_utils import psnr
-from pointrix.model.loss import psnr, ssim, LPIPS
-from pointrix.utils.visuaize import visualize_depth, visualize_rgb
+from ..utils.losses import l1_loss
+from ..utils.system import mkdir_p
+from ..model.loss import psnr, ssim, LPIPS
+from ..utils.visuaize import visualize_depth, visualize_rgb
 
 
 @torch.no_grad()

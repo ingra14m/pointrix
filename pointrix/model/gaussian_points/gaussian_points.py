@@ -3,8 +3,8 @@ from torch import nn
 from pytorch_msssim import ms_ssim
 from dataclasses import dataclass
 
-from pointrix.point_cloud import PointCloud, POINTSCLOUD_REGISTRY
-from pointrix.utils.gaussian_points.gaussian_utils import (
+from ...point_cloud import PointCloud, POINTSCLOUD_REGISTRY
+from ...utils.gaussian_points.gaussian_utils import (
     build_covariance_from_scaling_rotation,
     inverse_sigmoid,
     gaussian_point_init

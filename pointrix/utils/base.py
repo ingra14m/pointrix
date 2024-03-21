@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from typing import Optional, Union
 from omegaconf import DictConfig
 
-from pointrix.utils.config import parse_structured
+from ..utils.config import parse_structured
 
 def get_rank():
     # SLURM_PROCID can be set even if SLURM is not managing the multiprocessing,

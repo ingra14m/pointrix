@@ -11,11 +11,12 @@ from torch.utils.data import Dataset
 from dataclasses import dataclass, field, asdict
 from typing import Any, Dict, Union, List, NamedTuple, Optional
 from typing import Tuple
-from pointrix.utils.registry import Registry
-from pointrix.logger.writer import ProgressLogger, Logger
-from pointrix.utils.config import parse_structured
-from pointrix.camera.camera import Camera, Cameras, TrainableCamera
-from pointrix.utils.dataset.dataset_utils import force_full_init, getNerfppNorm
+
+from ..utils.registry import Registry
+from ..logger.writer import ProgressLogger, Logger
+from ..utils.config import parse_structured
+from ..camera.camera import Camera, Cameras, TrainableCamera
+from ..utils.dataset.dataset_utils import force_full_init, getNerfppNorm
 
 DATA_FORMAT_REGISTRY = Registry("DATA_FORMAT", modules=["pointrix.dataset"])
 DATA_FORMAT_REGISTRY.__doc__ = ""

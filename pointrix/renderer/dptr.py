@@ -4,9 +4,9 @@ import dptr.gs as gs
 
 from typing import List
 from dataclasses import dataclass
-from pointrix.utils.base import BaseObject
-from pointrix.utils.renderer.renderer_utils import RenderFeatures
-from pointrix.utils.registry import Registry
+from ..utils.base import BaseObject
+from ..utils.renderer.renderer_utils import RenderFeatures
+from ..utils.registry import Registry
 RENDERER_REGISTRY = Registry("RENDERER", modules=["pointrix.renderer"])
 
 @RENDERER_REGISTRY.register()

@@ -1,5 +1,5 @@
 from typing import Dict, Optional, Sequence, Union
-from pointrix.utils.registry import Registry
+from ..utils.registry import Registry
 
 HOOK_REGISTRY = Registry("HOOK", modules=["pointrix.hook"])
 HOOK_REGISTRY.__doc__ = ""

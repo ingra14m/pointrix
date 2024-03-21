@@ -13,9 +13,10 @@ import torch
 import math
 from dataclasses import dataclass
 
-from pointrix.utils.base import BaseObject
-from diff_gaussian_rasterization import GaussianRasterizationSettings, GaussianRasterizer
+from ..utils.base import BaseObject
 from .dptr import RENDERER_REGISTRY
+
+from diff_gaussian_rasterization import GaussianRasterizationSettings, GaussianRasterizer
 
 @RENDERER_REGISTRY.register()
 class GaussianSplattingRender(BaseObject):
